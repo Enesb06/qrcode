@@ -1,33 +1,135 @@
 {
   "kategoriler": [
     {
-      "kategori_adi": "Başlangıçlar",
+      "kategori_adi": "Dürümler",
       "urunler": [
         {
-          "ad": "TAVUK DÖNER",
-          "aciklama": "Bulgur pilavı ve közlenmiş domates ile.",
-          "fiyat": "35.00",
-          "one_cikan": true,
-          "alerjenler": ["gluten"]
+          "ad": "Et Dürüm",
+          "aciklama": "Özel marine edilmiş yaprak et döner, domates, soğan ve yeşilliklerle. (100 gr)",
+          "fiyat": "160.00",
+          "one_cikan": true
         },
         {
-          "ad": "ET DÖNER",
-          "aciklama": "Bulgur pilavı ve közlenmiş domates ile.",
-          "fiyat": "50.00",
-          "one_cikan": false,
-          "alerjenler": ["gluten", "laktoz"]
+          "ad": "Tavuk Dürüm",
+          "aciklama": "Özel baharatlı tavuk döner, patates kızartması, kornişon turşu ve özel sos. (100 gr)",
+          "fiyat": "110.00",
+          "one_cikan": false
+        },
+        {
+          "ad": "Zurna Et Dürüm",
+          "aciklama": "Bol malzemeli, uzun ve doyurucu yaprak et döner dürüm. (150 gr)",
+          "fiyat": "210.00",
+          "one_cikan": true
+        },
+        {
+          "ad": "Zurna Tavuk Dürüm",
+          "aciklama": "Dev gibi, bol malzemeli tavuk döner dürüm. (150 gr)",
+          "fiyat": "150.00",
+          "one_cikan": false
+        },
+        {
+          "ad": "Hatay Usulü Tavuk Dürüm",
+          "aciklama": "Özel Hatay sosu, mayonez, patates kızartması ve kornişon turşu ile.",
+          "fiyat": "120.00",
+          "one_cikan": false
         }
       ]
     },
     {
-      "kategori_adi": "Ana Yemekler",
+      "kategori_adi": "Porsiyon Dönerler",
       "urunler": [
         {
-          "ad": "TAVUK İSLİM KEBABI",
-          "aciklama": "Bulgur pilavı ve közlenmiş domates ile.",
+          "ad": "İskender",
+          "aciklama": "Yaprak et döner, pide, özel domates sosu, tereyağı ve yoğurt ile. (Usta'nın Tavsiyesi)",
+          "fiyat": "230.00",
+          "one_cikan": true
+        },
+        {
+          "ad": "Pilav Üstü Et Döner",
+          "aciklama": "Tereyağlı pirinç pilavı üzerinde servis edilen yaprak et döner. (120 gr)",
+          "fiyat": "200.00",
+          "one_cikan": false
+        },
+        {
+          "ad": "Pilav Üstü Tavuk Döner",
+          "aciklama": "Nefis pirinç pilavı üzerinde servis edilen tavuk döner. (120 gr)",
+          "fiyat": "140.00",
+          "one_cikan": false
+        },
+        {
+          "ad": "Porsiyon Et Döner (Sade)",
+          "aciklama": "Lavaş, domates ve biber ile servis edilir. (150 gr)",
+          "fiyat": "220.00",
+          "one_cikan": false
+        }
+      ]
+    },
+    {
+      "kategori_adi": "Ekmek Arası",
+      "urunler": [
+        {
+          "ad": "Ekmek Arası Et Döner",
+          "aciklama": "Tombik ekmek arasında, yeşillik, domates ve soğan ile. (100 gr)",
           "fiyat": "150.00",
-          "one_cikan": true,
-          "alerjenler": []
+          "one_cikan": false
+        },
+        {
+          "ad": "Ekmek Arası Tavuk Döner",
+          "aciklama": "Tombik ekmek arasında, bol malzemeli. (100 gr)",
+          "fiyat": "100.00",
+          "one_cikan": false
+        }
+      ]
+    },
+    {
+      "kategori_adi": "Yan Ürünler",
+      "urunler": [
+        {
+          "ad": "Patates Kızartması",
+          "aciklama": "Çıtır çıtır, porsiyon.",
+          "fiyat": "50.00",
+          "one_cikan": false
+        },
+        {
+          "ad": "Soğan Halkası",
+          "aciklama": "6'lı, özel sosu ile.",
+          "fiyat": "45.00",
+          "one_cikan": false
+        }
+      ]
+    },
+    {
+      "kategori_adi": "İçecekler",
+      "urunler": [
+        {
+          "ad": "Ayran",
+          "aciklama": "300 ml, açık veya kapalı.",
+          "fiyat": "20.00",
+          "one_cikan": false
+        },
+        {
+          "ad": "Kola",
+          "aciklama": "330 ml kutu.",
+          "fiyat": "30.00",
+          "one_cikan": false
+        },
+        {
+          "ad": "Fanta / Sprite",
+          "aciklama": "330 ml kutu.",
+          "fiyat": "30.00",
+          "one_cikan": false
+        },
+        {
+          "ad": "Şalgam Suyu",
+          "aciklama": "Acılı veya acısız.",
+          "fiyat": "25.00",
+          "one_cikan": false
+        },
+        {
+          "ad": "Su",
+          "aciklama": "0.5 L pet.",
+          "fiyat": "10.00",
+          "one_cikan": false
         }
       ]
     }
