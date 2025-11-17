@@ -4,15 +4,15 @@
       "kategori_adi": "Başlangıçlar",
       "urunler": [
         {
-          "ad": "Mercimek Çorbası",
-          "aciklama": "Taze nane ve tereyağı ile servis edilir.",
+          "ad": "TAVUK DÖNER",
+          "aciklama": "Bulgur pilavı ve közlenmiş domates ile.",
           "fiyat": "35.00",
           "one_cikan": true,
           "alerjenler": ["gluten"]
         },
         {
-          "ad": "Sigara Böreği",
-          "aciklama": "5 adet, ev yapımı.",
+          "ad": "ET DÖNER",
+          "aciklama": "Bulgur pilavı ve közlenmiş domates ile.",
           "fiyat": "50.00",
           "one_cikan": false,
           "alerjenler": ["gluten", "laktoz"]
@@ -23,7 +23,7 @@
       "kategori_adi": "Ana Yemekler",
       "urunler": [
         {
-          "ad": "Adana Kebap",
+          "ad": "TAVUK İSLİM KEBABI",
           "aciklama": "Bulgur pilavı ve közlenmiş domates ile.",
           "fiyat": "150.00",
           "one_cikan": true,
