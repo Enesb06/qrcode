@@ -1,0 +1,35 @@
+{
+  "kategoriler": [
+    {
+      "kategori_adi": "Başlangıçlar",
+      "urunler": [
+        {
+          "ad": "Mercimek Çorbası",
+          "aciklama": "Taze nane ve tereyağı ile servis edilir.",
+          "fiyat": "35.00",
+          "one_cikan": true,
+          "alerjenler": ["gluten"]
+        },
+        {
+          "ad": "Sigara Böreği",
+          "aciklama": "5 adet, ev yapımı.",
+          "fiyat": "50.00",
+          "one_cikan": false,
+          "alerjenler": ["gluten", "laktoz"]
+        }
+      ]
+    },
+    {
+      "kategori_adi": "Ana Yemekler",
+      "urunler": [
+        {
+          "ad": "Adana Kebap",
+          "aciklama": "Bulgur pilavı ve közlenmiş domates ile.",
+          "fiyat": "150.00",
+          "one_cikan": true,
+          "alerjenler": []
+        }
+      ]
+    }
+  ]
+}

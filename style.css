@@ -1,0 +1,63 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+/* Menü Konteyneri */
+#menu-container {
+    padding: 15px;
+}
+
+.kategori {
+    margin-bottom: 30px;
+}
+
+.kategori-baslik {
+    font-size: 1.8em;
+    color: #333;
+    border-bottom: 2px solid #c0392b;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.urun {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.urun-detay {
+    max-width: 75%;
+}
+
+.urun-ad {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.urun-aciklama {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.urun-fiyat {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #c0392b;
+}
