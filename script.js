@@ -21,28 +21,37 @@ function renderMenu(data) {
     menuContainer.innerHTML = ''; // Önceki içeriği temizle
 
     data.kategoriler.forEach(kategori => {
-        // Kategori div'ini oluştur
         const kategoriDiv = document.createElement('section');
         kategoriDiv.classList.add('kategori');
 
-        // Kategori başlığını oluştur
         const kategoriBaslik = document.createElement('h2');
         kategoriBaslik.classList.add('kategori-baslik');
         kategoriBaslik.textContent = kategori.kategori_adi;
         kategoriDiv.appendChild(kategoriBaslik);
 
-        // Kategorideki ürünleri işle
         kategori.urunler.forEach(urun => {
             const urunDiv = document.createElement('article');
             urunDiv.classList.add('urun');
 
-            urunDiv.innerHTML = `
-                <div class="urun-detay">
-                    <h3 class="urun-ad">${urun.ad}</h3>
+            let urunHTML = '';
+
+            // Ürünün resmi varsa <img> etiketini oluştur
+            if (urun.resim) {
+                urunHTML += `<img src="${urun.resim}" alt="${urun.ad}" class="urun-resim">`;
+            }
+
+            // Ürün bilgilerini (ad, açıklama, fiyat) içeren bir div oluştur
+            urunHTML += `
+                <div class="urun-bilgi">
+                    <div class="urun-ust-kisim">
+                        <h3 class="urun-ad">${urun.ad}</h3>
+                        <div class="urun-fiyat">${urun.fiyat} TL</div>
+                    </div>
                     <p class="urun-aciklama">${urun.aciklama}</p>
                 </div>
-                <div class="urun-fiyat">${urun.fiyat} TL</div>
             `;
+            
+            urunDiv.innerHTML = urunHTML;
             kategoriDiv.appendChild(urunDiv);
         });
 
