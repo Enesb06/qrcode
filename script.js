@@ -1,60 +1,94 @@
-// Sayfa yüklendiğinde menüyü getiren fonksiyonu çalıştır
-document.addEventListener('DOMContentLoaded', fetchMenu);
+// ==========================================
+// AYARLAR
+// ==========================================
+// 3. Adımda kopyaladığın ID'yi tırnakların içine yapıştır:
+const SHEET_ID = '1S4486Cil4ZG2bN8D6HJInIMy9kpzGu3h4La7X2GuyB8'; 
+
+// ==========================================
+// KODLAR (Buraya dokunmana gerek yok)
+// ==========================================
+const API_URL = `https://opensheet.elk.sh/${SHEET_ID}/1`;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuContainer = document.getElementById('menu-container');
+    menuContainer.innerHTML = '<p style="text-align:center; margin-top:20px;">Menü yükleniyor...</p>';
+    fetchMenu();
+});
 
 async function fetchMenu() {
     try {
-        const response = await fetch('menu.json'); // JSON dosyasını çekiyoruz
-        if (!response.ok) {
-            throw new Error('Menü verisi alınamadı!');
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Veri çekilemedi');
+        
+        const data = await response.json();
+        
+        // Eğer tablo boşsa veya hata varsa
+        if(data.length === 0) {
+            document.getElementById('menu-container').innerHTML = '<p>Menü verisi bulunamadı.</p>';
+            return;
         }
-        const menuData = await response.json();
-        renderMenu(menuData);
+
+        renderMenu(data);
+
     } catch (error) {
         console.error(error);
-        const menuContainer = document.getElementById('menu-container');
-        menuContainer.innerHTML = '<p>Menü yüklenirken bir hata oluştu. Lütfen tekrar deneyin.</p>';
+        document.getElementById('menu-container').innerHTML = 
+            '<p style="text-align:center; color:red;">Menü yüklenirken bir hata oluştu.<br>Lütfen internet bağlantınızı kontrol edin.</p>';
     }
 }
 
-function renderMenu(data) {
-    const menuContainer = document.getElementById('menu-container');
-    menuContainer.innerHTML = ''; // Önceki içeriği temizle
+function renderMenu(items) {
+    const container = document.getElementById('menu-container');
+    container.innerHTML = ''; // "Yükleniyor" yazısını temizle
 
-    data.kategoriler.forEach(kategori => {
-        const kategoriDiv = document.createElement('section');
-        kategoriDiv.classList.add('kategori');
+    // 1. Önce kategorileri gruplayalım
+    const kategoriler = {};
 
-        const kategoriBaslik = document.createElement('h2');
-        kategoriBaslik.classList.add('kategori-baslik');
-        kategoriBaslik.textContent = kategori.kategori_adi;
-        kategoriDiv.appendChild(kategoriBaslik);
+    items.forEach(item => {
+        // Kategori adı boşsa atla
+        if (!item.kategori) return;
 
-        kategori.urunler.forEach(urun => {
-            const urunDiv = document.createElement('article');
-            urunDiv.classList.add('urun');
+        if (!kategoriler[item.kategori]) {
+            kategoriler[item.kategori] = [];
+        }
+        kategoriler[item.kategori].push(item);
+    });
 
-            let urunHTML = '';
+    // 2. Gruplanan veriyi HTML'e dökelim
+    Object.keys(kategoriler).forEach(kategoriAdi => {
+        // Kategori Başlığı Bölümü
+        const section = document.createElement('section');
+        section.classList.add('kategori');
 
-            // Ürünün resmi varsa <img> etiketini oluştur
-            if (urun.resim) {
-                urunHTML += `<img src="${urun.resim}" alt="${urun.ad}" class="urun-resim">`;
+        const title = document.createElement('h2');
+        title.classList.add('kategori-baslik');
+        title.textContent = kategoriAdi;
+        section.appendChild(title);
+
+        // O kategorideki ürünleri listele
+        kategoriler[kategoriAdi].forEach(urun => {
+            const article = document.createElement('article');
+            article.classList.add('urun');
+
+            let resimHTML = '';
+            // Eğer tabloda resim hücresi doluysa ekle
+            if (urun.resim && urun.resim.trim() !== '') {
+                resimHTML = `<img src="${urun.resim}" alt="${urun.ad}" class="urun-resim" onerror="this.style.display='none'">`;
             }
 
-            // Ürün bilgilerini (ad, açıklama, fiyat) içeren bir div oluştur
-            urunHTML += `
+            article.innerHTML = `
+                ${resimHTML}
                 <div class="urun-bilgi">
                     <div class="urun-ust-kisim">
                         <h3 class="urun-ad">${urun.ad}</h3>
                         <div class="urun-fiyat">${urun.fiyat} TL</div>
                     </div>
-                    <p class="urun-aciklama">${urun.aciklama}</p>
+                    <p class="urun-aciklama">${urun.aciklama || ''}</p>
                 </div>
             `;
-            
-            urunDiv.innerHTML = urunHTML;
-            kategoriDiv.appendChild(urunDiv);
+            section.appendChild(article);
         });
 
-        menuContainer.appendChild(kategoriDiv);
+        container.appendChild(section);
     });
 }
